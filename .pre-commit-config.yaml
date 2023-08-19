@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v2.3.0
+    hooks:
+    - id: conventional-pre-commit
+      stages: [commit-msg]
+      args: [feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert]
+  
+  # - repo: local
+  #   hooks:
+  #   - id: tests
+  #     name: run tests
+  #     entry: pytest tests/
+  #     language: python
+  #     types: [python]
+  #     stages: [commit]
+
+  # - repo: https://github.com/psf/black
+  #   rev: 23.7.0
+  #   hooks:
+  #   - id: black
+  #     name: lint python
+  #     language_version: python3.10 
+  #     stages: [commit]
+  #     args:
+  #       - --target-version=py310
