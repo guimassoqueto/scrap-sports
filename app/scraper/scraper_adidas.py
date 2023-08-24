@@ -90,7 +90,7 @@ class ScraperAdidas(Scraper):
             "category": category,
             "reviews": product["ratingCount"],
             "free_shipping": False,
-            "image_url": product["image"]["src"].replace("w_280,h_280", "w_766,h_766"),
+            "image_url": product["image"]["src"].replace("w_280,h_280", "w_1080,h_1080"),
             "price": product["salePrice"],
             "previous_price": product["price"],
             "discount": round((1 - (product['salePrice'] / product['price'])) * 100),

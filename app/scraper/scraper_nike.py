@@ -98,7 +98,7 @@ class ScraperNike(Scraper):
             'title': str(product['name']).replace("'", "''"),
             'category': category,
             "free_shipping": False,
-            'image_url': f"https://imgnike-a.akamaihd.net/1920x1920/{product['id']}.jpg",
+            'image_url': f"https://imgnike-a.akamaihd.net/1080x1080/{product['id']}.jpg",
             "reviews": reviews,
             'discount': round((1 - (product['price'] / product['oldPrice'])) * 100),
             'price': product['price'],
