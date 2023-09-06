@@ -85,7 +85,7 @@ class ScraperAdidas(Scraper):
     def format_product(self, product: dict) -> dict:
         category = f"{product['division']} {product['category']} {product['sport']} {product['subTitle']}".replace("Homem", "Masculino").replace("Mulher", "Feminino")
         return {
-            "id": urljoin("https://adidas.com.br", product["link"]),
+            "product_url": urljoin("https://adidas.com.br", product["link"]),
             "title": product["altText"].replace("'", "''"),
             "category": category,
             "reviews": product["ratingCount"],

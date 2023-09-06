@@ -3,11 +3,11 @@ import psycopg
 from app.settings import POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER
 
 
-def upsert_product(product: dict) -> str:
+def upsert_query(item: dict) -> str:
     insert = f"INSERT INTO items("
     values = "VALUES("
-    on_conflict = "ON CONFLICT (id)\nDO UPDATE SET "
-    for key, value in product.items():
+    on_conflict = "ON CONFLICT (product_url)\nDO UPDATE SET "
+    for key, value in item.items():
         insert += f"{key},"
 
         if isinstance(value, str):
@@ -38,4 +38,4 @@ class PostgresDB:
         conninfo = f"dbname={POSTGRES_DB} user={POSTGRES_USER} password={POSTGRES_PASSWORD} host={POSTGRES_HOST} port={POSTGRES_PORT}"
         async with await psycopg.AsyncConnection.connect(conninfo) as aconn:
             async with aconn.cursor() as cur:
-                await cur.execute(upsert_product(product))
+                await cur.execute(upsert_query(product))

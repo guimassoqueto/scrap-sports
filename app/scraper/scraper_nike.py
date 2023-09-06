@@ -94,7 +94,7 @@ class ScraperNike(Scraper):
         category = f"{details['modality']} {' '.join(details['categories'])} {' '.join(details['genders'])}"
         reviews = details["reviews"]
         return {
-            'id': urljoin('https://www.nike.com.br/', product['url']).replace("'", "''"),
+            'product_url': urljoin('https://www.nike.com.br/', product['url']).replace("'", "''"),
             'title': str(product['name']).replace("'", "''"),
             'category': category,
             "free_shipping": False,
